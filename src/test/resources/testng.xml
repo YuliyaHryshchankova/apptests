@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Firefox suite" verbose="1">
+    <!--<suite name="Firefox suite" verbose="1" parallel="tests"  thread-count="2">-->
+
+
+ <test name="Firefox Test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.company.test.AwardCreateTest"/>
+        </classes>
+    </test>
+
+   <!-- <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.company.test.AwardCreateTest"/>
+        </classes>
+    </test>-->
+    <!--<test name="IE Test">
+        <parameter name="browser" value="ie"/>
+        <classes>
+            <class name="com.company.test.AwardCreateTest"/>
+        </classes>
+    </test>-->
+
+</suite>
