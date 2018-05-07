@@ -4,12 +4,12 @@
     <!--<suite name="Firefox suite" verbose="1" parallel="tests"  thread-count="2">-->
 
 
-<!-- <test name="Firefox Test">
+ <test name="Firefox Test">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.company.test.AwardCreateTest"/>
         </classes>
-    </test>-->
+    </test>
 
    <!-- <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
@@ -17,11 +17,11 @@
             <class name="com.company.test.AwardCreateTest"/>
         </classes>
     </test>-->
-    <test name="IE Test">
+<!--    <test name="IE Test">
         <parameter name="browser" value="ie"/>
         <classes>
             <class name="com.company.test.AwardCreateTest"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

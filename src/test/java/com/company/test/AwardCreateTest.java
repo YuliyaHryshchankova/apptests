@@ -4,6 +4,10 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
+
 public class AwardCreateTest extends PreConfig {
 
     private static final String URL = "https://staging-web1.corp.globoforce.com/microsites/t/home?client=testclientclone3&setCAG=true";
@@ -18,6 +22,7 @@ public class AwardCreateTest extends PreConfig {
         driver.findElement(By.name("username")).sendKeys(username);
         driver.findElement(By.name("password")).sendKeys(password);
         driver.findElement(By.id("signIn-button")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //check whether Welcome page with Privacy Policy and Terms of Use is opened. If YES, click 'Okay - Let's go' button.
         if (!driver.findElements( By.xpath("//button[@class='btn btn--primary']") ).isEmpty()){
             driver.findElement(By.xpath("//button[@class='btn btn--primary']")).click();
@@ -26,6 +31,7 @@ public class AwardCreateTest extends PreConfig {
         if (!driver.findElements( By.xpath("//button[@class='cookie-accept-btn']") ).isEmpty()){
             driver.findElement(By.xpath("//button[@class='cookie-accept-btn']")).click();
         }
+       driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
 
         Assert.assertTrue(driver.findElement(By.xpath("//a[@href='/microsites/t/home?client=testclientclone3' and @target='_self']")).isDisplayed(), "Login Failed");
     }
