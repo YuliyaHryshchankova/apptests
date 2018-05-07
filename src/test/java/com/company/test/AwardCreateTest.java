@@ -22,6 +22,10 @@ public class AwardCreateTest extends PreConfig {
         if (!driver.findElements( By.xpath("//button[@class='btn btn--primary']") ).isEmpty()){
             driver.findElement(By.xpath("//button[@class='btn btn--primary']")).click();
          }
+        //check whether 'cookie policy' popup is present. If YES, click 'I accept' button.
+        if (!driver.findElements( By.xpath("//button[@class='cookie-accept-btn']") ).isEmpty()){
+            driver.findElement(By.xpath("//button[@class='cookie-accept-btn']")).click();
+        }
 
         Assert.assertTrue(driver.findElement(By.xpath("//a[@href='/microsites/t/home?client=testclientclone3' and @target='_self']")).isDisplayed(), "Login Failed");
     }
@@ -65,6 +69,7 @@ public class AwardCreateTest extends PreConfig {
         Assert.assertTrue(driver.findElement(By.xpath("//button[@class='js-np-close gf-btn btn-primary btn-block btn-lg inline-block']")).isDisplayed(), "Award Creation Failed");
         closeButton.click();
 
+        waitElementInvisible(By.id("np_mainNotification"));
 
     }
 
