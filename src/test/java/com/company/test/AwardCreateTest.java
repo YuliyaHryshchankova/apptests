@@ -57,7 +57,7 @@ public class AwardCreateTest extends PreConfig {
 
     }
 
-    @Test(description = "Successful logout", priority = 3, dependsOnMethods = "verifyAwardCreate")
+    @Test(description = "Successful  logout", priority = 3, dependsOnMethods = "verifyAwardCreate")
     public void successLogOut() {
         driver.findElement(By.xpath("//a[@href='/microsites/t/home?logout&client=testclientclone3']")).click();
 
