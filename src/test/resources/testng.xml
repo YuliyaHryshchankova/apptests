@@ -17,7 +17,7 @@
             <class name="com.company.test.AwardCreateTest"/>
         </classes>
     </test>-->
-    <!--<test name="IE Test">
+<!--    <test name="IE Test">
         <parameter name="browser" value="ie"/>
         <classes>
             <class name="com.company.test.AwardCreateTest"/>

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -33,10 +34,11 @@ public class PreConfig {
             System.setProperty("webdriver.chrome.driver", ".\\src\\test\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.edge.driver", ".\\src\\test\\resources\\IEDriverServer.exe");
-            driver = new EdgeDriver();
+            System.setProperty("webdriver.ie.driver", ".\\src\\test\\resources\\IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
         }
         driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
 
@@ -52,4 +54,12 @@ public class PreConfig {
                 .withMessage("Failed to wait element: " + by)
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
+
+    protected void waitElementInvisible(final By by) {
+        new WebDriverWait(driver, 20)
+                .pollingEvery(Duration.ofSeconds(1))
+                .withMessage("Failed to wait element: " + by)
+                .until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
 }
