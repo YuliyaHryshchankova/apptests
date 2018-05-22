@@ -20,11 +20,11 @@ public class NominationDetailsPage extends BasePage{
         super(driver);
     }
 
-    public String verifyAwardTitleValue() {
+    public String getVerifyAwardTitleValue() {
         return awardTitleValue.getText();
     }
 
-    public String verifyAwardMessageValue() {
+    public String getVerifyAwardMessageValue() {
         return awardMessageValue.getText();
     }
 

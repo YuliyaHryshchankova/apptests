@@ -66,8 +66,8 @@ public class AwardCreateTest extends BaseTest {
                 .openNominationDetails();
 
         NominationDetailsPage nominationDetailsPage = new NominationDetailsPage(driver);
-        Assert.assertEquals(nominationDetailsPage.verifyAwardTitleValue(), "Test award title");
-        Assert.assertEquals(nominationDetailsPage.verifyAwardMessageValue(), "Test award title");
+        Assert.assertEquals(nominationDetailsPage.getVerifyAwardTitleValue(), titleOfAward,  "Award title failed validation");
+        Assert.assertEquals(nominationDetailsPage.getVerifyAwardMessageValue(), message, "Award message failed validation");
 
         new NominationDetailsPage(driver)
                 .clickCloseIcon();
