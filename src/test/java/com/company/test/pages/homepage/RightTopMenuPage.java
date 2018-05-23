@@ -1,5 +1,7 @@
-package com.company.test.pages;
+package com.company.test.pages.homepage;
 
+import com.company.test.pages.BasePage;
+import com.company.test.pages.LogInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

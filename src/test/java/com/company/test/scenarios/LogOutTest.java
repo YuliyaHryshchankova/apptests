@@ -1,7 +1,7 @@
 package com.company.test.scenarios;
 
 import com.company.test.pages.LogInPage;
-import com.company.test.pages.RightTopMenuPage;
+import com.company.test.pages.homepage.RightTopMenuPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,6 +1,7 @@
 package com.company.test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -33,7 +34,7 @@ public abstract class BasePage {
         try {
             element.isDisplayed();
             return true;
-        } catch (Exception nsee) {
+        } catch (NoSuchElementException nsee) {
             return false;
         }
     }
@@ -51,6 +52,13 @@ public abstract class BasePage {
                 .pollingEvery(Duration.ofSeconds(1))
                 .withMessage("Failed to wait element: " + by)
                 .until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    protected void waitElementInvisible(final By by) {
+        new WebDriverWait(driver, 20)
+                .pollingEvery(Duration.ofSeconds(1))
+                .withMessage("Failed to wait element: " + by)
+                .until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     protected void waitElementInvisible(WebElement webElement) {

@@ -1,6 +1,10 @@
 package com.company.test.scenarios;
 
-import com.company.test.pages.*;
+import com.company.test.pages.homepage.MainMenuPage;
+import com.company.test.pages.mydashboard.MyDashboardPage;
+import com.company.test.pages.mydashboard.mynominations.MyNominationsPage;
+import com.company.test.pages.mydashboard.mynominations.NominationDetailsPage;
+import com.company.test.pages.nomination.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -56,17 +60,19 @@ public class AwardCreateTest extends BaseTest {
 
     public void verifyAwardPresentOnMyNominations() {
 
-        new MainMenuPage(driver)
+
+        MyDashboardPage myDashboardPage = new MainMenuPage(driver)
+                .waitNominateAnotherColleaguePageClose()
                 .goToMyDashboard();
 
-        new MyDashboardPage(driver)
+        myDashboardPage
                 .clickMyNominations();
 
         new MyNominationsPage(driver)
                 .openNominationDetails();
 
         NominationDetailsPage nominationDetailsPage = new NominationDetailsPage(driver);
-        Assert.assertEquals(nominationDetailsPage.getVerifyAwardTitleValue(), titleOfAward,  "Award title failed validation");
+        Assert.assertEquals(nominationDetailsPage.getVerifyAwardTitleValue(), titleOfAward, "Award title failed validation");
         Assert.assertEquals(nominationDetailsPage.getVerifyAwardMessageValue(), message, "Award message failed validation");
 
         new NominationDetailsPage(driver)

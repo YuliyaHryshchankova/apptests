@@ -1,5 +1,6 @@
-package com.company.test.pages;
+package com.company.test.pages.mydashboard;
 
+import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class MyDashboardPage extends BasePage {
     }
 
     public void clickMyNominations() {
+
         myNominations.click();
 
     }

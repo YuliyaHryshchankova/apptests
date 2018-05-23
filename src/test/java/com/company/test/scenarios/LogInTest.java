@@ -2,7 +2,7 @@ package com.company.test.scenarios;
 
 import com.company.test.pages.GDPRPage;
 import com.company.test.pages.LogInPage;
-import com.company.test.pages.MainMenuPage;
+import com.company.test.pages.homepage.MainMenuPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

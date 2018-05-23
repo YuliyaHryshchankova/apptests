@@ -1,18 +1,19 @@
-package com.company.test.pages;
+package com.company.test.pages.mydashboard.mynominations;
 
+import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class NominationDetailsPage extends BasePage{
+public class NominationDetailsPage extends BasePage {
 
-    @FindBy(xpath="//a[@class='container-close']")
+    @FindBy(xpath = "//a[@class='container-close']")
     private WebElement closeIcon;
 
-    @FindBy(xpath="//tr[5]/td[1][@class='col5']")
+    @FindBy(xpath = "//tr[5]/td[1][@class='col5']")
     private WebElement awardTitleValue;
 
-    @FindBy(xpath="//td[@class='grid_7 messageLtr']")
+    @FindBy(xpath = "//td[@class='grid_7 messageLtr']")
     private WebElement awardMessageValue;
 
     public NominationDetailsPage(WebDriver driver) {
