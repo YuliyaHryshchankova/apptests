@@ -34,7 +34,7 @@ public abstract class BasePage {
         try {
             element.isDisplayed();
             return true;
-        } catch (NoSuchElementException nsee) {
+        } catch (Exception nsee) {
             return false;
         }
     }
