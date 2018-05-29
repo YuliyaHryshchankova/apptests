@@ -1,10 +1,11 @@
-package com.company.test.scenarios;
+package com.company.test.scenarios.nomination;
 
 import com.company.test.pages.homepage.MainMenuPage;
 import com.company.test.pages.mydashboard.MyDashboardPage;
 import com.company.test.pages.mydashboard.mynominations.MyNominationsPage;
 import com.company.test.pages.mydashboard.mynominations.NominationDetailsPage;
 import com.company.test.pages.nomination.*;
+import com.company.test.scenarios.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -24,31 +25,16 @@ public class AwardCreateTest extends BaseTest {
         titleOfAward = titleOfAward + String.valueOf(rand.nextInt(999));
         message = message + String.valueOf(rand.nextInt(999));
 
-        MainMenuPage mainMenuPage = new MainMenuPage(driver)
-                .clickRecognize();
-
-        new ChoseNominatorPage(driver)
-                .selectNominator();
-
-        new SelectRecipientPage(driver)
-                .selectNominee();
-
-        new SelectProgramPage(driver)
-                .selectAwardProgram();
-
-        new SelectAwardReasonPage(driver)
-                .selectAwardReason();
-
-        new AwardAdvisorPage(driver)
-                .skipAwardAdvisor();
-
-        new SelectAwardTypePage(driver)
-                .selectAwardType();
-
-        new AwardMessagePage(driver)
-                .sendAward(titleOfAward, message);
-
-        new NominateAnotherColleaguePage(driver)
+        MainMenuPage mainMenuPage = new MainMenuPage(driver);
+        mainMenuPage
+                .clickRecognize()
+                .selectNominator()
+                .selectNominee()
+                .selectAwardProgram()
+                .selectAwardReason()
+                .skipAwardAdvisor()
+                .selectAwardType()
+                .sendAward(titleOfAward, message)
                 .completeRecognition();
 
         Assert.assertTrue(mainMenuPage.homeTabLocationDisplayed(), "Login Failed");
@@ -66,9 +52,7 @@ public class AwardCreateTest extends BaseTest {
                 .goToMyDashboard();
 
         myDashboardPage
-                .clickMyNominations();
-
-        new MyNominationsPage(driver)
+                .clickMyNominations()
                 .openNominationDetails();
 
         NominationDetailsPage nominationDetailsPage = new NominationDetailsPage(driver);

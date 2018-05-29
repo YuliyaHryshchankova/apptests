@@ -14,9 +14,10 @@ public class ChoseNominatorPage extends BasePage {
         super(driver);
     }
 
-    public void selectNominator() {
+    public SelectRecipientPage selectNominator() {
         waitElementToBeClickable(nominateAsMyself);
         nominateAsMyself.click();
+        return new SelectRecipientPage(getDriver());
     }
 
 

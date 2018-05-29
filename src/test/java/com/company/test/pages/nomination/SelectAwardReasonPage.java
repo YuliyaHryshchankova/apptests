@@ -15,9 +15,10 @@ public class SelectAwardReasonPage extends BasePage {
         super(driver);
     }
 
-    public void selectAwardReason() {
+    public AwardAdvisorPage selectAwardReason() {
         waitElementToBeClickable(awardReason);
         awardReason.click();
+        return new AwardAdvisorPage(getDriver());
 
     }
 

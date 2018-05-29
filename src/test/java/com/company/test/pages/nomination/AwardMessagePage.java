@@ -22,14 +22,14 @@ public class AwardMessagePage extends BasePage {
         super(driver);
     }
 
-    public AwardMessagePage sendAward(String titleOfAward, String message) {
+    public NominateAnotherColleaguePage sendAward(String titleOfAward, String message) {
         waitElementToBeClickable(awardTitle);
         awardTitle.sendKeys(titleOfAward);
         waitElementToBeClickable(awardMessage);
         awardMessage.sendKeys(message);
         waitElementToBeClickable(sendAwardButton);
         sendAwardButton.click();
-        return new AwardMessagePage(driver);
+        return new NominateAnotherColleaguePage(driver);
 
     }
 

@@ -15,9 +15,10 @@ public class AwardAdvisorPage extends BasePage {
         super(driver);
     }
 
-    public void skipAwardAdvisor() {
+    public SelectAwardTypePage skipAwardAdvisor() {
         waitElementToBeClickable(skipAwardAdvisorButton);
         skipAwardAdvisorButton.click();
+        return new SelectAwardTypePage(getDriver());
 
     }
 }

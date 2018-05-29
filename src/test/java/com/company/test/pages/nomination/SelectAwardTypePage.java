@@ -15,9 +15,10 @@ public class SelectAwardTypePage extends BasePage {
         super(driver);
     }
 
-    public void selectAwardType() {
+    public AwardMessagePage selectAwardType() {
         waitElementToBeClickable(awardType);
         awardType.click();
+        return new AwardMessagePage(getDriver());
 
     }
 

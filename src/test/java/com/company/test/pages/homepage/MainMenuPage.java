@@ -2,6 +2,8 @@ package com.company.test.pages.homepage;
 
 import com.company.test.pages.BasePage;
 import com.company.test.pages.mydashboard.MyDashboardPage;
+import com.company.test.pages.mydashboard.mynominations.MyNominationsPage;
+import com.company.test.pages.nomination.ChoseNominatorPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,9 +35,9 @@ public class MainMenuPage extends BasePage {
         return isElementPresent(homeTab);
     }
 
-    public MainMenuPage clickRecognize() {
+    public ChoseNominatorPage clickRecognize() {
         recognize.click();
-        return this;
+        return new ChoseNominatorPage(getDriver());
     }
 
     public MainMenuPage waitNominateAnotherColleaguePageClose() {

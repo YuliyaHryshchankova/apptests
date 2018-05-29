@@ -1,8 +1,9 @@
-package com.company.test.scenarios;
+package com.company.test.scenarios.login;
 
 import com.company.test.pages.GDPRPage;
 import com.company.test.pages.LogInPage;
 import com.company.test.pages.homepage.MainMenuPage;
+import com.company.test.scenarios.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

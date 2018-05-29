@@ -18,10 +18,11 @@ public class SelectRecipientPage extends BasePage {
         super(driver);
     }
 
-    public void selectNominee() {
+    public SelectProgramPage selectNominee() {
         waitElementToBeClickable(nominee);
         nominee.click();
         nextButon.click();
+        return new SelectProgramPage(getDriver());
 
     }
 
