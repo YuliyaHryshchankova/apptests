@@ -1,0 +1,24 @@
+package com.company.test.pages.nomination;
+
+import com.company.test.pages.BasePage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class ChoseNominatorPage extends BasePage {
+
+    @FindBy(xpath = "//button[@class='js-np-recipient-item gf-btn btn-primary btn-lg']")
+    private WebElement nominateAsMyself;
+
+    public ChoseNominatorPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public SelectRecipientPage selectNominator() {
+        waitElementToBeClickable(nominateAsMyself);
+        nominateAsMyself.click();
+        return new SelectRecipientPage(getDriver());
+    }
+
+
+}

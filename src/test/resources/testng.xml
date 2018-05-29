@@ -4,23 +4,37 @@
     <!--<suite name="Firefox suite" verbose="1" parallel="tests"  thread-count="2">-->
 
 
- <test name="Firefox Test">
+ <test name="Firefox Test LogInTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.company.test.AwardCreateTest"/>
+            <class name="com.company.test.scenarios.login.LogInTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Test AwardCreateTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+           <class name="com.company.test.scenarios.nomination.AwardCreateTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Test LogOutTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.company.test.scenarios.login.LogOutTest"/>
         </classes>
     </test>
 
    <!-- <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.company.test.AwardCreateTest"/>
+            <class name="com.company.test.scenarios.nomination.AwardCreateTest"/>
         </classes>
     </test>-->
 <!--    <test name="IE Test">
         <parameter name="browser" value="ie"/>
         <classes>
-            <class name="com.company.test.AwardCreateTest"/>
+            <class name="com.company.test.scenarios.nomination.AwardCreateTest"/>
         </classes>
     </test>-->
 
