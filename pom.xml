@@ -25,6 +25,7 @@
             <configuration>
                   <suiteXmlFiles>
                     <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
+                      <suiteXmlFile>src\test\resources\remoteDriverTest.xml</suiteXmlFile>
                 </suiteXmlFiles>
                 <testFailureIgnore>false</testFailureIgnore>
             </configuration>
