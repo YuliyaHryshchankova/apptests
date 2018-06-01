@@ -34,6 +34,9 @@
                       <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                 </suiteXmlFiles>
                 <testFailureIgnore>false</testFailureIgnore>
+
+                    <forkMode>never</forkMode>
+
             </configuration>
         </plugin>
         <plugin>
