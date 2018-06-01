@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Only Remote Driver task" verbose="1">
+    <test name="GloboforcePageTitleTest">
+   <!--     <parameter name="browser" value="chrome"/>
+        <parameter name="platform" value="WINDOWS"/>-->
+        <classes>
+            <class name="com.company.test.scenarios.remotedriver.GloboforcePageTitleTest"/>
+        </classes>
+    </test>
+</suite>
