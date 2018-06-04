@@ -8,7 +8,14 @@
     <artifactId>NominationTest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-   <build>
+    <properties>
+        <!--<suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>-->
+        <suiteXmlFile>src\test\resources\remoteDriverTest.xml</suiteXmlFile>
+        <!--<suiteXmlFile>src\test\resources\configappTestSuite.xml</suiteXmlFile>-->
+    </properties>
+
+
+    <build>
     <plugins>
           <plugin>
                <artifactId>maven-compiler-plugin</artifactId>
@@ -24,9 +31,12 @@
             <version>2.16</version>
             <configuration>
                   <suiteXmlFiles>
-                    <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
+                      <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                 </suiteXmlFiles>
                 <testFailureIgnore>false</testFailureIgnore>
+
+                    <forkMode>never</forkMode>
+
             </configuration>
         </plugin>
         <plugin>
