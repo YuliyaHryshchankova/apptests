@@ -8,6 +8,7 @@ public class SwapAwardLevelsTest extends BaseTest {
 
     private String username = "bhkb.jshcw@gqfozpkzgb.kbk";
     private String password = "password1";
+    private String clientName = "Test Client AT Nominator";
 
     @Test(description = "Successful swapping of award programs for 5021 client", priority = 0)
     public void swapAwardProgramsTest() {
@@ -16,7 +17,7 @@ public class SwapAwardLevelsTest extends BaseTest {
                 .openURL()
                 .loginToIaf(username, password)
                 .openConfigApp()
-                .clickClientLink()
+                .clickClientLink(clientName)
                 .openAwardPrograms()
                 .openSortAwardLevelsPopup()
                 .moveAwardLevel();
