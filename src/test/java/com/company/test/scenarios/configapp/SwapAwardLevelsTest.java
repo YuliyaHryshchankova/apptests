@@ -1,6 +1,6 @@
 package com.company.test.scenarios.configapp;
 
-import com.company.test.pages.iafapps.IafLoginPage;
+import com.company.test.services.logInServices.LogInToIafApp;
 import com.company.test.scenarios.BaseTest;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ public class SwapAwardLevelsTest extends BaseTest {
     @Test(description = "Successful swapping of award programs for 5021 client", priority = 0)
     public void swapAwardProgramsTest() {
 
-        new IafLoginPage(driver)
+        new LogInToIafApp(driver)
                 .openURL()
                 .loginToIaf(username, password)
                 .openConfigApp()

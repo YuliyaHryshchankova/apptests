@@ -5,11 +5,17 @@ import com.company.test.pages.mydashboard.mynominations.MyNominationsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class MyDashboardPage extends BasePage {
 
+ /*   @Name("Search form")
+    @Block(@FindBy(id="subNavBarContainer"))
+*/
+    @Name("My Nominations")
     @FindBy(xpath = "//a[@href='/microsites/t/dashboard/MyNominations?client=testclientclone3']")
-    private WebElement myNominations;
+    private Link myNominationsLink;
 
     public MyDashboardPage(WebDriver driver) {
 
@@ -18,7 +24,7 @@ public class MyDashboardPage extends BasePage {
 
     public MyNominationsPage clickMyNominations() {
 
-        myNominations.click();
+        myNominationsLink.click();
         return new MyNominationsPage(getDriver());
 
 

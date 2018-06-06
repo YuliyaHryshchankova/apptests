@@ -1,28 +1,27 @@
-package com.company.test.pages.homepage;
+/*
+package com.company.test.pages.block;
 
-import com.company.test.pages.BasePage;
 import com.company.test.services.logInServices.LogInToClientSite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 
-public class RightTopMenuPage extends BasePage {
+@Name("Right Top Menu")
+@FindBy(className="grid_7 right headerLinks p2")
+public class RightTopMenu extends HtmlElement {
 
     @Name("Log out link")
     @FindBy(xpath = "//a[@href='/microsites/t/home?logout&client=testclientclone3']")
     private Link logOutLink;
 
-    public RightTopMenuPage(WebDriver driver) {
-
-        super(driver);
-    }
-
-    public LogInToClientSite clickLogOutLink() {
+    public void logOut() {
 
         logOutLink.click();
-        return new LogInToClientSite(driver);
+
     }
 
 
 }
+*/

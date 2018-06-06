@@ -4,11 +4,14 @@ import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class NominateAnotherColleaguePage extends BasePage {
 
+    @Name("Close button")
     @FindBy(xpath = "//button[@class='js-np-close gf-btn btn-primary btn-block btn-lg inline-block']")
-    private WebElement closeButton;
+    private Button closeButton;
 
     public NominateAnotherColleaguePage(WebDriver driver) {
 

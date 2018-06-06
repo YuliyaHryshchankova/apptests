@@ -1,9 +1,9 @@
 package com.company.test.scenarios.login;
 
 import com.company.test.pages.GDPRPage;
-import com.company.test.pages.LogInPage;
 import com.company.test.pages.homepage.MainMenuPage;
 import com.company.test.scenarios.BaseTest;
+import com.company.test.services.logInServices.LogInToClientSite;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,7 +20,7 @@ public class LogInTest extends BaseTest {
     public void successLogin() {
 
 
-        MainMenuPage mainMenuPage = new LogInPage(driver)
+        MainMenuPage mainMenuPage = new LogInToClientSite(driver)
                 .openURL()
                 .loginToClientSite(username, password);
 

@@ -1,19 +1,20 @@
 package com.company.test.pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 
 import java.time.Duration;
 
 public abstract class BasePage {
 
-    protected WebDriver driver;
+    protected final WebDriver driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+        //PageFactory.initElements(this.driver, this);
+        HtmlElementLoader.populatePageObject(this, this.driver);
 
     }
 
@@ -26,7 +27,6 @@ public abstract class BasePage {
         return i != 0;
     }
 
-
     public boolean isElementPresent(WebElement element) {
         try {
             element.isDisplayed();
@@ -37,7 +37,15 @@ public abstract class BasePage {
     }
 
 
+
     protected WebElement waitElementToBeClickable(WebElement webElement) {
+        return new WebDriverWait(driver, 20)
+                .pollingEvery(Duration.ofSeconds(1))
+                .withMessage("Failed to wait element: " + webElement)
+                .until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    protected WebElement waitElementToBeClickable(WebDriver driver, WebElement webElement) {
         return new WebDriverWait(driver, 20)
                 .pollingEvery(Duration.ofSeconds(1))
                 .withMessage("Failed to wait element: " + webElement)

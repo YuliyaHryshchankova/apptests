@@ -1,25 +1,31 @@
-package com.company.test.pages.iafapps;
+package com.company.test.services.logInServices;
 
 import com.company.test.pages.BasePage;
+import com.company.test.pages.iafapps.IafHomePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
-public class IafLoginPage extends BasePage {
+public class LogInToIafApp extends BasePage {
 
     private static final String URL =
             "https://staging-sandbox0.corp.globoforce.com/iaf-login-app/home";
 
+    @Name("Username Input field")
     @FindBy(name = "j_username")
-    private WebElement username;
+    private TextInput username;
 
+    @Name("Password Input field")
     @FindBy(name = "j_password")
-    private WebElement password;
+    private TextInput password;
 
+    @Name("Login button")
     @FindBy(xpath = "//*[@class='button']")
-    private WebElement loginButton;
+    private Button loginButton;
 
-    public IafLoginPage(WebDriver driver) {
+    public LogInToIafApp(WebDriver driver) {
 
         super(driver);
     }
@@ -28,7 +34,7 @@ public class IafLoginPage extends BasePage {
         return isElementPresent(loginButton);
     }
 
-    public IafLoginPage openURL() {
+    public LogInToIafApp openURL() {
         driver.get(URL);
         return this;
     }

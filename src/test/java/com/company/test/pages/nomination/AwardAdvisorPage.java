@@ -4,11 +4,14 @@ import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class AwardAdvisorPage extends BasePage {
 
+    @Name("Skip Award Advisor")
     @FindBy(xpath = "//a[@class='js-np-skip-advisor block np-advisor-skip-link award_reason_1_color']")
-    private WebElement skipAwardAdvisorButton;
+    private Button skipAwardAdvisorButton;
 
     public AwardAdvisorPage(WebDriver driver) {
 
