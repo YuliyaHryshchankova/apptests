@@ -24,7 +24,6 @@ public class NominationDetailsPage extends BasePage {
     private TextBlock awardMessageValue;
 
     public NominationDetailsPage(WebDriver driver) {
-
         super(driver);
     }
 

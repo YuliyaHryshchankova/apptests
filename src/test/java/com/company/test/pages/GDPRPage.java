@@ -12,7 +12,6 @@ public class GDPRPage extends BasePage {
     private Button gdprButton;
 
     public GDPRPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -20,6 +19,5 @@ public class GDPRPage extends BasePage {
         if (isElementPresent(gdprButton)) {
             gdprButton.click();
         }
-
     }
 }

@@ -1,29 +1,29 @@
-/*
 package com.company.test.pages;
 
 import com.company.test.pages.homepage.MainMenuPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class LogInPage extends BasePage {
 
     private final static String URL = "https://staging-web1.corp.globoforce.com/microsites/t/home?client=testclientclone3&setCAG=true";
 
-    @Name("")
+    @Name("Username input field")
     @FindBy(name = "username")
-    private TextInput username;
+    private TextInput usernameTextInput;
 
+    @Name("Password input field")
     @FindBy(name = "password")
-    private WebElement password;
+    private TextInput passwordTextInput;
 
+    @Name("Sign in button")
     @FindBy(id = "signIn-button")
-    private WebElement loginButton;
+    private Button loginButton;
 
     public LogInPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -31,21 +31,15 @@ public class LogInPage extends BasePage {
         return isElementPresent(loginButton);
     }
 
-
     public LogInPage openURL() {
         driver.get(URL);
         return this;
     }
 
-
-    public MainMenuPage loginToClientSite(String user, String pass) {
-        username.sendKeys(user);
-        password.sendKeys(pass);
+    public MainMenuPage loginToClientSite(String user, String password) {
+        usernameTextInput.sendKeys(user);
+        passwordTextInput.sendKeys(password);
         loginButton.click();
         return new MainMenuPage(getDriver());
-
     }
-
-
 }
-*/

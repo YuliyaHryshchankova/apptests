@@ -11,11 +11,10 @@ public abstract class BasePage {
 
     protected final WebDriver driver;
 
-    public BasePage(WebDriver driver) {
+    protected BasePage(WebDriver driver) {
         this.driver = driver;
         //PageFactory.initElements(this.driver, this);
         HtmlElementLoader.populatePageObject(this, this.driver);
-
     }
 
     public WebDriver getDriver() {
@@ -35,8 +34,6 @@ public abstract class BasePage {
             return false;
         }
     }
-
-
 
     protected WebElement waitElementToBeClickable(WebElement webElement) {
         return new WebDriverWait(driver, 20)
@@ -74,6 +71,13 @@ public abstract class BasePage {
     }
 
     protected void waitUntilVisible(WebElement webElement) {
+        new WebDriverWait(driver, 20)
+                .ignoring(StaleElementReferenceException.class)
+                .ignoring(WebDriverException.class)
+                .until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    protected void waitUntilVisible(WebDriver driver, WebElement webElement) {
         new WebDriverWait(driver, 20)
                 .ignoring(StaleElementReferenceException.class)
                 .ignoring(WebDriverException.class)

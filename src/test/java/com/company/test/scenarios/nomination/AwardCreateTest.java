@@ -1,69 +1,60 @@
 package com.company.test.scenarios.nomination;
 
+import com.company.test.businessobjects.Nomination;
+import com.company.test.pages.homepage.CompanyAwardsFeedPage;
 import com.company.test.pages.homepage.MainMenuPage;
-import com.company.test.pages.mydashboard.MyDashboardPage;
-import com.company.test.pages.mydashboard.mynominations.MyNominationsPage;
 import com.company.test.pages.mydashboard.mynominations.NominationDetailsPage;
-import com.company.test.pages.nomination.*;
 import com.company.test.scenarios.BaseTest;
+import com.company.test.services.nomination.NominationService;
+import com.company.test.staticfactory.NominationStaticFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
 public class AwardCreateTest extends BaseTest {
 
-
-    private String titleOfAward = "test title";
-    private String message = "test message";
-    private Random rand = new Random();
-
+    NominationService nominationService;
+    Nomination nomination;
 
     @Test(description = "Verify Award Creation", priority = 2)
     public void verifyAwardCreate() {
+        nomination = NominationStaticFactory.createDefaultNomination();
+        nominationService = new NominationService(driver);
+        nominationService.createAward(nomination);
 
-        titleOfAward = titleOfAward + String.valueOf(rand.nextInt(999));
-        message = message + String.valueOf(rand.nextInt(999));
-
-        MainMenuPage mainMenuPage = new MainMenuPage(driver);
-        mainMenuPage
-                .clickRecognize()
-                .selectNominator()
-                .selectNominee()
-                .selectAwardProgram()
-                .selectAwardReason()
-                .skipAwardAdvisor()
-                .selectAwardType()
-                .sendAward(titleOfAward, message)
-                .completeRecognition();
-
-        Assert.assertTrue(mainMenuPage.homeTabLocationDisplayed(), "Login Failed");
-
+        Assert.assertTrue(nominationService.homeTabLocationDisplayed(), "Login Failed");
     }
 
-
     @Test(description = "Verify created award is present on My Nominations", priority = 3, dependsOnMethods = "verifyAwardCreate")
-
     public void verifyAwardPresentOnMyNominations() {
+        nominationService = new NominationService(driver);
+        nominationService.openNominationDetails();
 
-
-        MyDashboardPage myDashboardPage = new MainMenuPage(driver)
-                .waitNominateAnotherColleaguePageClose()
-                .goToMyDashboard();
-
-        myDashboardPage
-                .clickMyNominations()
-                .openNominationDetails();
-
-        NominationDetailsPage nominationDetailsPage = new NominationDetailsPage(driver);
-        Assert.assertEquals(nominationDetailsPage.getVerifyAwardTitleValue(), titleOfAward, "Award title failed validation");
-        Assert.assertEquals(nominationDetailsPage.getVerifyAwardMessageValue(), message, "Award message failed validation");
+        Assert.assertEquals(nominationService.getVerifyAwardTitleValue(), nomination.getAwardTitle(), "Award title failed validation");
+        Assert.assertEquals(nominationService.getVerifyAwardMessageValue(), nomination.getAwardMessage(), "Award message failed validation");
 
         new NominationDetailsPage(driver)
                 .clickCloseIcon();
-
-
     }
 
+    @Test(description = "Verify created award is present on News Feed", priority = 4, dependsOnMethods = "verifyAwardCreate")
+    public void verifyAwardPresentOnNewFeed() {
+        long timeOut = 180000;
+        long start = System.currentTimeMillis();
+        CompanyAwardsFeedPage companyAwardsFeedPage = new CompanyAwardsFeedPage(driver);
+
+            new MainMenuPage(driver)
+                    .clickHomeTab();
+
+            while (System.currentTimeMillis() - start < timeOut) {
+                new CompanyAwardsFeedPage(driver)
+                        .viewAllAwards();
+            if (companyAwardsFeedPage.getVerifyAwardTitleValue().equals(nomination.getAwardTitle())) {
+                break;
+            }
+        }
+
+        Assert.assertEquals(companyAwardsFeedPage.getVerifyAwardTitleValue(), nomination.getAwardTitle(), "Award title failed validation");
+        Assert.assertEquals(companyAwardsFeedPage.getVerifyAwardMessageValue(), nomination.getAwardMessage(), "Award message failed validation");
+    }
 
 }

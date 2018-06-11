@@ -2,7 +2,6 @@ package com.company.test.pages.nomination;
 
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -14,7 +13,6 @@ public class AwardAdvisorPage extends BasePage {
     private Button skipAwardAdvisorButton;
 
     public AwardAdvisorPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -22,6 +20,5 @@ public class AwardAdvisorPage extends BasePage {
         waitElementToBeClickable(skipAwardAdvisorButton);
         skipAwardAdvisorButton.click();
         return new SelectAwardTypePage(getDriver());
-
     }
 }

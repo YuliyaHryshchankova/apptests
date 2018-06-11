@@ -2,7 +2,6 @@ package com.company.test.pages.nomination;
 
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -22,9 +21,7 @@ public class AwardMessagePage extends BasePage {
     @FindBy(xpath = "//button[@class='js-np-send-award gf-btn btn-primary btn-lg btn-block inline-block']")
     private Button sendAwardButton;
 
-
     public AwardMessagePage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -36,7 +33,6 @@ public class AwardMessagePage extends BasePage {
         waitElementToBeClickable(sendAwardButton);
         sendAwardButton.click();
         return new NominateAnotherColleaguePage(driver);
-
     }
 
 

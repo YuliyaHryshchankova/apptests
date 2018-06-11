@@ -3,7 +3,6 @@ package com.company.test.pages.mydashboard.mynominations;
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Link;
@@ -24,7 +23,6 @@ public class MyNominationsPage extends BasePage {
     private Link nominationDetailsIconLink;
 
     public MyNominationsPage(WebDriver driver) {
-
         super(driver);
     }
 

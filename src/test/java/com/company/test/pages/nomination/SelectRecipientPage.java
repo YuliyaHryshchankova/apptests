@@ -2,7 +2,6 @@ package com.company.test.pages.nomination;
 
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -19,7 +18,6 @@ public class SelectRecipientPage extends BasePage {
     private Button nextButon;
 
     public SelectRecipientPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -28,7 +26,6 @@ public class SelectRecipientPage extends BasePage {
         nominee.click();
         nextButon.click();
         return new SelectProgramPage(getDriver());
-
     }
 
 }

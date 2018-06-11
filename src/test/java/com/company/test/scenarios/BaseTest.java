@@ -4,15 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    protected static WebDriver driver;
-
     protected static final int IMPLICIT_TIMEOUT = 20;
+    protected static WebDriver driver;
 
     @Parameters("browser")
 
@@ -34,7 +36,6 @@ public class BaseTest {
         driver.manage().window().maximize();
     }
 
-
     //@AfterClass(description = "Quit browser", alwaysRun = true)
     @AfterSuite(description = "Quit browser", alwaysRun = true)
     public void closeDriver() {
@@ -42,7 +43,7 @@ public class BaseTest {
             driver.quit();
     }
 
-    protected WebDriver getWebDriver() {
+    protected WebDriver getDriver() {
         return this.driver;
     }
 

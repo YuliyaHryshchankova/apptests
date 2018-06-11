@@ -1,7 +1,7 @@
 package com.company.test.pages.homepage;
 
 import com.company.test.pages.BasePage;
-import com.company.test.services.logInServices.LogInToClientSite;
+import com.company.test.pages.LogInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
@@ -14,15 +14,12 @@ public class RightTopMenuPage extends BasePage {
     private Link logOutLink;
 
     public RightTopMenuPage(WebDriver driver) {
-
         super(driver);
     }
 
-    public LogInToClientSite clickLogOutLink() {
-
+    public LogInPage clickLogOutLink() {
         logOutLink.click();
-        return new LogInToClientSite(driver);
+        return new LogInPage(driver);
     }
-
 
 }

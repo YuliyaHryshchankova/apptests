@@ -3,7 +3,6 @@ package com.company.test.pages.homepage;
 import com.company.test.pages.BasePage;
 import com.company.test.pages.mydashboard.MyDashboardPage;
 import com.company.test.pages.nomination.ChoseNominatorPage;
-import com.company.test.services.logInServices.LogInToClientSite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -45,6 +44,11 @@ public class MainMenuPage extends BasePage {
         return new ChoseNominatorPage(getDriver());
     }
 
+    public CompanyAwardsFeedPage clickHomeTab() {
+        homeLink.click();
+        return new CompanyAwardsFeedPage(getDriver());
+    }
+
     public MainMenuPage waitNominateAnotherColleaguePageClose() {
         if (isElementPresent(nominateAnotherColleague)) {
             waitElementInvisible(nominateAnotherColleague);
@@ -55,13 +59,11 @@ public class MainMenuPage extends BasePage {
     public MyDashboardPage goToMyDashboard() {
         myDashboardLink.click();
         return new MyDashboardPage(getDriver());
-
     }
 
     public void clickAcceptCookie() {
         if (isElementPresent(acceptCookieButton)) {
             acceptCookieButton.click();
-
         }
     }
 

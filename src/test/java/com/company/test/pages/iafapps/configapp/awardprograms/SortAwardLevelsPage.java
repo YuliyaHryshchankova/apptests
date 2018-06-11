@@ -1,4 +1,4 @@
-package com.company.test.pages.iafapps.configapp.awardPrograms;
+package com.company.test.pages.iafapps.configapp.awardprograms;
 
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.By;
@@ -6,13 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 import java.util.List;
 
 public class SortAwardLevelsPage extends BasePage {
 
-    @FindBy(xpath="//*[@id='dlg']/a")
-    private WebElement closeIcon;
+    @Name("Close Button")
+    @FindBy(xpath = "//*[@id='dlg']/a")
+    private Button closeIconButton;
 
     public SortAwardLevelsPage(WebDriver driver) {
         super(driver);
@@ -20,13 +23,13 @@ public class SortAwardLevelsPage extends BasePage {
 
     public SortAwardLevelsPage moveAwardLevel() {
         List<WebElement> listOfAwards = driver.findElements(By.xpath("//*[@id='current_items']/li"));
-              Actions actions = new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.dragAndDrop(listOfAwards.get(3), listOfAwards.get(1)).build().perform();
         return this;
     }
 
     public ManageAwardProgramsPage closeSortAwardLevelsPopup() {
-        closeIcon.click();
+        closeIconButton.click();
         return new ManageAwardProgramsPage(getDriver());
     }
 
