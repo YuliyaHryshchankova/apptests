@@ -12,7 +12,7 @@ public class WebServicesPreconditions {
 
     @BeforeSuite
         public void beforeMethod() {
-        client = HttpClient.getInstance();
+        client = MyHttpClient.getInstance();
     }
 
     @AfterSuite

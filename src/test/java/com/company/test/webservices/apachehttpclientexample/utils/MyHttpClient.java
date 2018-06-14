@@ -3,7 +3,7 @@ package com.company.test.webservices.apachehttpclientexample.utils;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-public class HttpClient {
+public class MyHttpClient {
 
     protected static CloseableHttpClient client;
 
@@ -13,4 +13,5 @@ public class HttpClient {
         }
         return client;
     }
+
 }
