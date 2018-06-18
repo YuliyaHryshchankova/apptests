@@ -14,4 +14,8 @@ public class MyHttpClient {
         return client;
     }
 
+    public static String buildURL(String uri, String country, String state) {
+        return uri + "/" + country + "/" + state;
+    }
+
 }

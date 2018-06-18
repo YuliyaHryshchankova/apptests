@@ -1,5 +1,6 @@
 package com.company.test.webservices.apachehttpclientexample.tests;
 
+import com.company.test.webservices.apachehttpclientexample.utils.MyHttpClient;
 import com.company.test.webservices.apachehttpclientexample.utils.WebServicesPreconditions;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -11,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class NegativeTest extends WebServicesPreconditions {
-
-    /*private static final String URL = "http://services.groupkt.com/css/app.css";*/
 
     @Test(description = "Verify 404 status code returned")
     public void negativeTest() throws IOException {
@@ -38,13 +37,13 @@ public class NegativeTest extends WebServicesPreconditions {
 
     }
 
+    private static final String COUNTRY = "USA";
+    private static final String STATE = "YU";
 
     @Test(description = "Verify no matching state found for requested code")
     public void negativeTest2() throws IOException {
 
-        final String URL = "http://services.groupkt.com/state/get/USA/YU";
-
-        HttpGet httpPost = new HttpGet(URL);
+        HttpGet httpPost = new HttpGet(MyHttpClient.buildURL(URI, COUNTRY, STATE));
 
         CloseableHttpResponse response = client.execute(httpPost);
 

@@ -1,5 +1,6 @@
 package com.company.test.webservices.apachehttpclientexample.tests;
 
+import com.company.test.webservices.apachehttpclientexample.utils.MyHttpClient;
 import com.company.test.webservices.apachehttpclientexample.utils.WebServicesPreconditions;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -12,12 +13,13 @@ import java.io.InputStreamReader;
 
 public class PositiveTest extends WebServicesPreconditions {
 
-    private static final String URL = "http://services.groupkt.com/state/get/USA/HI";
+    private static final String COUNTRY = "USA";
+    private static final String STATE = "HI";
 
     @Test(description = "Verify 200 status code returned")
     public void test() throws IOException {
 
-        HttpGet httpGet = new HttpGet(URL);
+        HttpGet httpGet = new HttpGet(MyHttpClient.buildURL(URI, COUNTRY, STATE));
 
         CloseableHttpResponse response = client.execute(httpGet);
 

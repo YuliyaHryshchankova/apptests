@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class WebServicesPreconditions {
 
+    protected static final String URI = "http://services.groupkt.com/state/get";
+
     protected static CloseableHttpClient client;
 
     @BeforeSuite
