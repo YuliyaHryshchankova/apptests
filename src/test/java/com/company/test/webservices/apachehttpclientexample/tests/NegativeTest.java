@@ -41,7 +41,7 @@ public class NegativeTest extends WebServicesPreconditions {
     private static final String STATE = "YU";
 
     @Test(description = "Verify no matching state found for requested code")
-    public void negativeTest2() throws IOException {
+    public void negativeTest2() throws  IOException {
 
         HttpGet httpPost = new HttpGet(MyHttpClient.buildURL(URI, COUNTRY, STATE));
 
