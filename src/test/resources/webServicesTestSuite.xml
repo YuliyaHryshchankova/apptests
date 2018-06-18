@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Web services" verbose="1" >
+
+    <test name="Web services">
+        <classes>
+            <class name="com.company.test.webservices.apachehttpclientexample.tests.PositiveTest"/>
+            <class name="com.company.test.webservices.apachehttpclientexample.tests.NegativeTest"/>
+        </classes>
+    </test>
+</suite>

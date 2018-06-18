@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class LogOutTest extends BaseTest {
 
-    @Test(description = "Successful logout", priority = 4)
+    @Test(description = "Successful logout", priority = 5)
     public void successLogOut() {
 
         LogInPage logInPage = new RightTopMenuPage(driver)

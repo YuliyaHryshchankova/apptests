@@ -2,24 +2,24 @@ package com.company.test.pages.nomination;
 
 import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 public class SelectAwardTypePage extends BasePage {
 
+    @Name("Award Type")
     @FindBy(xpath = "//div[3]/bdi")
-    private WebElement awardType;
+    private HtmlElement awardTypeItem;
 
     public SelectAwardTypePage(WebDriver driver) {
-
         super(driver);
     }
 
     public AwardMessagePage selectAwardType() {
-        waitElementToBeClickable(awardType);
-        awardType.click();
+        waitElementToBeClickable(awardTypeItem);
+        awardTypeItem.click();
         return new AwardMessagePage(getDriver());
-
     }
 
 }

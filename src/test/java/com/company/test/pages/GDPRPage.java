@@ -1,23 +1,23 @@
 package com.company.test.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class GDPRPage extends BasePage {
 
+    @Name("'OKay - let's go!' button")
     @FindBy(xpath = "//button[@class='btn btn--primary']")
-    private WebElement gdbr;
+    private Button gdprButton;
 
     public GDPRPage(WebDriver driver) {
-
         super(driver);
     }
 
     public void acceptGDPR() {
-        if (isElementPresent(gdbr)) {
-            gdbr.click();
+        if (isElementPresent(gdprButton)) {
+            gdprButton.click();
         }
-
     }
 }

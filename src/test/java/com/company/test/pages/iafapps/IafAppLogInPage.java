@@ -1,29 +1,30 @@
-package com.company.test.pages;
+package com.company.test.pages.iafapps;
 
-import com.company.test.pages.homepage.MainMenuPage;
+import com.company.test.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
-public class LogInPage extends BasePage {
+public class IafAppLogInPage extends BasePage {
 
-    private final static String URL = "https://staging-web1.corp.globoforce.com/microsites/t/home?client=testclientclone3&setCAG=true";
+    private static final String URL =
+            "https://staging-sandbox0.corp.globoforce.com/iaf-login-app/home";
 
-    @Name("Username input field")
-    @FindBy(name = "username")
+    @Name("Username Input field")
+    @FindBy(name = "j_username")
     private TextInput usernameTextInput;
 
-    @Name("Password input field")
-    @FindBy(name = "password")
+    @Name("Password Input field")
+    @FindBy(name = "j_password")
     private TextInput passwordTextInput;
 
-    @Name("Sign in button")
-    @FindBy(id = "signIn-button")
+    @Name("Login button")
+    @FindBy(xpath = "//*[@class='button']")
     private Button loginButton;
 
-    public LogInPage(WebDriver driver) {
+    public IafAppLogInPage(WebDriver driver) {
         super(driver);
     }
 
@@ -31,15 +32,20 @@ public class LogInPage extends BasePage {
         return isElementPresent(loginButton);
     }
 
-    public LogInPage openURL() {
+    public IafAppLogInPage openURL() {
         driver.get(URL);
         return this;
     }
 
-    public MainMenuPage loginToClientSite(String user, String password) {
+    public IafHomePage loginToIaf(String user, String password) {
         usernameTextInput.sendKeys(user);
         passwordTextInput.sendKeys(password);
         loginButton.click();
-        return new MainMenuPage(getDriver());
+        return new IafHomePage(getDriver());
     }
+
+
 }
+
+
+
