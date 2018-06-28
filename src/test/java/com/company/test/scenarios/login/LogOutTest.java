@@ -10,10 +10,11 @@ public class LogOutTest extends BaseTest {
 
     @Test(description = "Successful logout", priority = 5)
     public void successLogOut() {
+        logger.info("Verify log out from client site");
 
         LogInPage logInPage = new RightTopMenuPage(driver)
                 .clickLogOutLink();
 
-        Assert.assertTrue(logInPage.logInButtonDisplayed(), "Logout Failed");
+         Assert.assertTrue(logInPage.logInButtonDisplayed(), "Logout Failed");
     }
 }

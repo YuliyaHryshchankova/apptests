@@ -1,5 +1,6 @@
 package com.company.test.scenarios.remotedriver;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -12,9 +13,11 @@ import java.net.URL;
 
 public class GloboforcePageTitleTest {
 
+    private Logger logger = Logger.getLogger(getClass());
 
     @Test(description = "Check page title is correct")
     public void test() throws MalformedURLException {
+        logger.info("Checking Globoforce title");
         DesiredCapabilities cap = new DesiredCapabilities();
         //cap.setBrowserName("firefox");
         cap.setBrowserName("chrome");

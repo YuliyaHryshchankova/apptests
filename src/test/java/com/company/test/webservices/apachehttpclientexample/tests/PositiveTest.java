@@ -19,6 +19,8 @@ public class PositiveTest extends WebServicesPreconditions {
     @Test(description = "Verify 200 status code returned")
     public void test() throws IOException {
 
+        logger.info("Verify 200 status code returned");
+
         HttpGet httpGet = new HttpGet(MyHttpClient.buildURL(URI, COUNTRY, STATE));
 
         CloseableHttpResponse response = client.execute(httpGet);

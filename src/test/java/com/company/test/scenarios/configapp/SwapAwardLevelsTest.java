@@ -15,6 +15,7 @@ public class SwapAwardLevelsTest extends BaseTest {
 
     @Test(description = "Successful swapping of award programs for 5021 client", priority = 0)
     public void swapAwardLevelTest() {
+        logger.info("Checking swapping of award programs");
 
         IafUser iafUser = UsersStaticFactory.createDefaultIafUser();
 

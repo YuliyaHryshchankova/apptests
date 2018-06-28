@@ -1,18 +1,15 @@
 package com.company.test.scenarios;
 
-import com.company.test.utilities.DriverManager;
-import com.company.test.utilities.DriverManagerFactory;
+import com.company.test.utilities.CustomListener;
+import com.company.test.utilities.ScreenshotUtils;
+import com.company.test.utilities.driverutils.DriverManager;
+import com.company.test.utilities.driverutils.DriverManagerFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
-import java.util.concurrent.TimeUnit;
-
+@Listeners(CustomListener.class)
 public class BaseTest {
 
     protected static final int IMPLICIT_TIMEOUT = 20;
@@ -28,6 +25,11 @@ public class BaseTest {
         driver = driverManager.getInstance();
     }
 
+    @AfterMethod
+    public void takeScreenshot(ITestResult result) {
+        ScreenshotUtils.captureScreenshot(driver, result);
+    }
+
     //@AfterClass(description = "Quit browser", alwaysRun = true)
     @AfterSuite(description = "Quit browser", alwaysRun = true)
     public void closeDriver() {
@@ -38,5 +40,7 @@ public class BaseTest {
     protected WebDriver getDriver() {
         return this.driver;
     }
+
+    protected Logger logger = Logger.getLogger(getClass());
 
 }

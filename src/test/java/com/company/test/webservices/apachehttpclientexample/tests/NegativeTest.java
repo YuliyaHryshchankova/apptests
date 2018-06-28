@@ -13,8 +13,13 @@ import java.io.InputStreamReader;
 
 public class NegativeTest extends WebServicesPreconditions {
 
+    private static final String COUNTRY = "USA";
+    private static final String STATE = "YU";
+
     @Test(description = "Verify 404 status code returned")
     public void negativeTest() throws IOException {
+
+        logger.info("Verify 404 status code returned");
 
         final String URL = "http://services.groupkt.com/css/app.css";
 
@@ -37,11 +42,10 @@ public class NegativeTest extends WebServicesPreconditions {
 
     }
 
-    private static final String COUNTRY = "USA";
-    private static final String STATE = "YU";
-
     @Test(description = "Verify no matching state found for requested code")
-    public void negativeTest2() throws  IOException {
+    public void negativeTest2() throws IOException {
+
+        logger.info("Verify no matching state found for requested code");
 
         HttpGet httpPost = new HttpGet(MyHttpClient.buildURL(URI, COUNTRY, STATE));
 

@@ -13,10 +13,12 @@ public class LogInTest extends BaseTest {
 
     @Test(description = "Successful login", priority = 1)
     public void successLogin() {
+        logger.info("Log in to client site");
         ClientSiteUser clientSiteUser = UsersStaticFactory.createDefaultClientSiteUser();
         logInToClientSiteService = new LogInToClientSiteService(driver);
         logInToClientSiteService.login(clientSiteUser);
 
+        logger.info("Verify user gets to client site");
         Assert.assertTrue(logInToClientSiteService.homeTabLocationDisplayed(), "Login Failed");
     }
 }

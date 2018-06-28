@@ -1,4 +1,4 @@
-package com.company.test.utilities;
+package com.company.test.utilities.driverutils;
 
 import org.openqa.selenium.WebDriver;
 
