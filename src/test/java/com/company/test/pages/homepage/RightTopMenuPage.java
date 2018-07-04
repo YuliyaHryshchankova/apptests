@@ -10,7 +10,8 @@ import ru.yandex.qatools.htmlelements.element.Link;
 public class RightTopMenuPage extends BasePage {
 
     @Name("Log out link")
-    @FindBy(xpath = "//a[@href='/microsites/t/home?logout&client=testclientclone3']")
+    /*@FindBy(xpath = "//a[@href='/microsites/t/home?logout&client=testclientclone3']")*/
+    @FindBy(xpath = "//a[@href='/microsites/t/home?logout&client=testclientclone3' and @class='linkStyle3']")
     private Link logOutLink;
 
     public RightTopMenuPage(WebDriver driver) {

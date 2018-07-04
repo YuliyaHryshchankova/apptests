@@ -57,6 +57,7 @@ public class MainMenuPage extends BasePage {
     }
 
     public MyDashboardPage goToMyDashboard() {
+        waitElementToBeClickable(myDashboardLink);
         myDashboardLink.click();
         return new MyDashboardPage(getDriver());
     }
