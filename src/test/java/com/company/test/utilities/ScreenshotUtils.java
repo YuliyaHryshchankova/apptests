@@ -12,8 +12,7 @@ import java.io.IOException;
 
 public class ScreenshotUtils {
     public static void captureScreenshot(WebDriver driver, ITestResult result) {
-        if (!result.isSuccess()) {
-       /* result.isSuccess()) {*/
+        if (result.isSuccess()) {
 //            !result.isSuccess()) {
             File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             try {
